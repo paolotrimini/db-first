@@ -48,7 +48,7 @@
             $stmt -> bind_result($room_number, $floor, $beds);
 
             $stmt -> fetch();
-            echo  'Piano: ' . $floor . '<br>' . ' N° letti: ' . $beds . '</a>' . '<br>';
+            echo  'Piano: ' . $floor . '<br>' . ' N° letti: ' . $beds . '<br>';
 
             closeConn($conn, $stmt);
 

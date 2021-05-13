@@ -19,12 +19,6 @@
             background: darkgoldenrod;
             color: white;
         }
-
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
     </style>
     <script>
         function init() {
@@ -41,20 +35,26 @@
             <h1>DB-FIRST - Lista delle stanze</h1>
             <?php
 
-                require_once 'data.php';
+            require_once 'data.php';
+            $id = $_GET['id'];
 
-                $conn = getConnection();
-                $sql = getStanzeSql();
+            $conn = getConnection();
+            $sql = getDettagliStanza();
 
-                $stmt = $conn -> prepare($sql); // connessione SQL
-                $stmt -> execute();             // lancio la query (ctrl + invio)
-                $stmt -> bind_result($room_number);
+            $stmt = $conn -> prepare($sql);
+            $stmt -> bind_param("i",$id);
+            $stmt -> execute();
+            $stmt -> bind_result($room_number, $floor, $beds);
 
-                while ($stmt -> fetch()){   // cicla tutte le stanze
+            $stmt -> fetch();
+            echo '<a href="stanze.php/?id=">' . '<span>'. 'N° stanza: ' . ' ' . '</span>'
+                . $room_number
+                . $floor . '<br>' . 'Piano: '
+                . $beds . '<br>' . 'N° letti: '
+                . '</a>' . '<br>';
 
-                    echo '<a href="stanze.php/?id=">' . '<span>'. 'N° stanza: ' . ' ' . '</span>' .$room_number . '</a>' . '<br>';
-                }
-               closeConn($conn, $stmt);
+            closeConn($conn, $stmt);
+
             ?>
 
         </div>

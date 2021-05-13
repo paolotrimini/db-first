@@ -43,15 +43,12 @@
             $sql = getDettagliStanza();
 
             $stmt = $conn -> prepare($sql);
-            $stmt -> bind_param("i",$id); // NB: cambiare "i"
+            $stmt -> bind_param("",$id); // NB: cambiare "i"
             $stmt -> execute();
             $stmt -> bind_result($room_number, $floor, $beds);
 
             $stmt -> fetch();
-            echo '<a href="stanze.php/?id=">'
-                . $floor . '<br>' . 'Piano: '
-                . $beds . '<br>' . 'N° letti: '
-                . '</a>' . '<br>';
+            echo  'Piano: ' . $floor . '<br>' . ' N° letti: ' . $beds . '</a>' . '<br>';
 
             closeConn($conn, $stmt);
 

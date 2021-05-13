@@ -27,10 +27,7 @@
 
     </style>
     <script>
-        function init() {
-
-        }
-        document.addEventListener("DOMContentLoaded",init);
+       
     </script>
     <title>db-first</title>
 </head>

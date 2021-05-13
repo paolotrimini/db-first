@@ -19,12 +19,13 @@
             background: darkgoldenrod;
             color: white;
         }
+        a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
     <script>
-        function init() {
 
-        }
-        document.addEventListener("DOMContentLoaded",init);
     </script>
     <title>db-first</title>
 </head>
@@ -47,8 +48,7 @@
             $stmt -> bind_result($room_number, $floor, $beds);
 
             $stmt -> fetch();
-            echo '<a href="stanze.php/?id=">' . '<span>'. 'N° stanza: ' . ' ' . '</span>'
-                . $room_number
+            echo '<a href="stanze.php/?id=">'
                 . $floor . '<br>' . 'Piano: '
                 . $beds . '<br>' . 'N° letti: '
                 . '</a>' . '<br>';

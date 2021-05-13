@@ -43,7 +43,7 @@
             $sql = getDettagliStanza();
 
             $stmt = $conn -> prepare($sql);
-            $stmt -> bind_param("i",$id);
+            $stmt -> bind_param("i",$id); // NB: cambiare "i"
             $stmt -> execute();
             $stmt -> bind_result($room_number, $floor, $beds);
 

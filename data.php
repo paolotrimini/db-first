@@ -29,7 +29,7 @@
             return "
             SELECT floor, beds, created_at, updated_at
             FROM stanze
-            WHERE id = ? 
+            /*WHERE id = ?*/
             ";
         }
 

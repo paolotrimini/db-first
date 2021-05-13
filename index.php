@@ -44,8 +44,24 @@
                     }
                     return $conn;
                 }
+
+                function getStanzeSql(){
+                    return"
+                    SELECT room_number
+                    FROM stanze
+                    ";
+                }
                 $conn = getConnection();
                 //var_dump($conn); die();
+
+                $sql = getStanzeSql();
+                $stmt = $conn -> prepare($sql);
+                $stmt -> execute();
+                $stmt -> bind_result($room_number);
+
+                while ($stmt -> fetch()){
+                    echo '<span>'. 'N° stanza: ' . ' ' . '</span>' .$room_number . '<br>';
+                }
             ?>
 
         </div>

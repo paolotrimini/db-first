@@ -45,7 +45,7 @@
             $stmt = $conn -> prepare($sql);
             $stmt -> bind_param("",$id); // NB: cambiare "i"
             $stmt -> execute();
-            $stmt -> bind_result($room_number, $floor, $beds);
+            $stmt -> bind_result($floor, $beds);
 
             $stmt -> fetch();
             echo  'Piano: ' . $floor . '<br>' . ' N° letti: ' . $beds . '<br>';

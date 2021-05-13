@@ -27,9 +27,9 @@
 
         function getDettagliStanza(){
             return "
-            SELECT floor, beds, created_at, updated_at
-            FROM stanze
-            /*WHERE id = ?*/
+            SELECT floor, beds
+            FROM stanze;
+           /* WHERE id = ?*/
             ";
         }
 

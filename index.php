@@ -49,7 +49,7 @@
 
                 while ($stmt -> fetch()){   // cicla tutte le stanze
 
-                    echo '<a href="stanze.php/?id=">' . '<span>'. 'N° stanza: ' . ' ' . '</span>' .$room_number . '</a>' . '<br>';
+                    echo '<a href="stanze.php/?id=">' . '<span>'. 'N° stanza: ' . ' ' . '</span>' .$room_number . '</a>' . '<br>'; // correggere href
                 }
                closeConn($conn, $stmt);
             ?>
